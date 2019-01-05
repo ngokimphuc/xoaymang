@@ -1,0 +1,25 @@
+function xoayVongMang(sophantutrongmang){
+ 		//tạo mảng đầu có N phần tử
+	 	var mang1 = new Array(sophantutrongmang);
+	 	for (var i = 0; i < sophantutrongmang; i++) {
+	 		mang1[i] = i;
+	 	}
+		//console.log(mang1);
+
+		//tạo mảng 2 cũng có n phần tử, với phần tử 0 của mảng 2 là mảng thứ nhất
+		var mang2 = new Array(sophantutrongmang);
+		mang2[0] = mang1;
+
+		// tiếp theo tạo phần tử từ 1 - N 
+	 	for (var j = 1; j < sophantutrongmang; j++) {
+	 		mang2[j] = new Array(sophantutrongmang);
+	 			// với mỗi mảng được tạo ra sẽ là dịch sang trái 1 phần tử so với mảng trước
+		 		for (var i = 0; i < sophantutrongmang; i++) {
+		 			 var x = mang2[j-1][0];
+		 			 mang2[j][i] = mang2[j-1][i+1];
+		 			 mang2[j][sophantutrongmang-1] = x;
+		 			 //console.log(x);
+		 	}
+		 }
+		return mang2;
+ 	}
